@@ -1,0 +1,4 @@
+Model,NumCtx,NumPredict,Latency(s),CPU(%),RAM(%),Tokens/sec,EfficiencyScore,Mode
+phi3:mini,256,200,16.08,7.9,70.2,9.7,17.53,Optimized
+phi3:mini,256,200,17.13,11.0,83.8,11.68,16.67,Optimized
+phi3:mini,256,200,18.87,9.3,83.0,10.6,19.42,Optimized
