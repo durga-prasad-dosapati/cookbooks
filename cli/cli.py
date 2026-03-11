@@ -6,6 +6,7 @@ import os
 # Add the parent directory to sys.path to allow importing from the root (like benchmark.py)
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from benchmark import Benchmark
+from generate_dashboard import generate_dashboard
 
 def generate_html(data_unoptimized, data_optimized):
     html_template = f"""<!DOCTYPE html>
@@ -267,15 +268,10 @@ def main():
             results = list(reader)
             
     if len(results) >= 2:
-        data_unoptimized = results[-2]
-        data_optimized = results[-1]
-        
-        html_content = generate_html(data_unoptimized, data_optimized)
+        # Generate the new premium dashboard with all history
+        generate_dashboard()
         
         output_file = "index.html"
-        with open(output_file, "w", encoding='utf-8') as f:
-            f.write(html_content)
-            
         print(f"\n✅ Optimization analysis complete. Open {os.path.abspath(output_file)} in your browser to view the generated graphs.")
     else:
         print("\n❌ Error: Could not read enough data from results log to generate graphs. Execution might have failed.")
